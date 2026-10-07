@@ -228,7 +228,7 @@ TOOLS = [
             "select the appropriate team and the app populates the right rep based on preloaded territory "
             "maps. Pushes updates to Field Services in a couple of clicks."
         ),
-        "url": "https://account-assignment-validator.streamlit.app/",
+        "url": "https://smb-account-assignment-validator-v3.streamlit.app/",
         "badges": ["sf", "wk", "xl"],
         "upload_note": "Territory maps are preloaded but may be out of date if there has been a roster change. Upload a fresh territory file if assignments are populating incorrectly.",
         "download_note": None,
