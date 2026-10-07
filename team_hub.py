@@ -5,6 +5,7 @@ SAP-styled to match the user portal. Edit TOOLS list to add/remove entries.
 import base64, io
 import streamlit as st
 from PIL import Image
+from streamlit_pdf_viewer import pdf_viewer
 
 # ── Favicon + nav logo (pre-baked PNGs, PIL only at runtime) ─────────────────
 exec(open(__file__.replace('team_hub.py', 'work/inject_vars.py')).read()) if False else None
@@ -334,12 +335,8 @@ for tool in TOOLS:
                 "text-transform:uppercase;letter-spacing:0.05em;'>"
                 "&#128196; Full How-To Guide (PDF)</span></div>",
                 unsafe_allow_html=True)
-            pdf_src = f"data:application/pdf;base64,{tool['pdf_b64']}"
-            st.markdown(
-                f"<iframe src='{pdf_src}' width='100%' height='520px'"
-                f" style='border:1px solid #D9E1E8;border-radius:3px;"
-                f"margin-top:0.5rem;'></iframe>",
-                unsafe_allow_html=True)
+            pdf_bytes = base64.b64decode(tool['pdf_b64'])
+            pdf_viewer(input=pdf_bytes, width=700)
 
     st.markdown("")
 
